@@ -175,7 +175,7 @@ static void cancel_delayed_block(CWDelayedBlockHandle delayedHandle)
 }
 # pragma mark - CWStatusBarNotification
 
-@interface CWStatusBarNotification()
+@interface CWStatusBarNotification() <UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) UITapGestureRecognizer *tapGestureRecognizer;
 @property (strong, nonatomic) UISwipeGestureRecognizer *swipeGestureRecognizer;
