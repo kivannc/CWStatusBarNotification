@@ -16,7 +16,7 @@ typedef void(^CWCompletionBlock)(void);
 # pragma mark - ScrollLabel
 
 /**
- * A subclass of @c UILabel that scrolls the text if it is too long for the 
+ * A subclass of @c UILabel that scrolls the text if it is too long for the
  * label.
  */
 @interface ScrollLabel : UILabel
@@ -30,7 +30,7 @@ typedef void(^CWCompletionBlock)(void);
 # pragma mark - CWWindowContainer
 
 /**
- * A subclass of @c UIWindow that overrides the @c hitTest method in order to 
+ * A subclass of @c UIWindow that overrides the @c hitTest method in order to
  * allow tap events to pass through the window.
  */
 @interface CWWindowContainer : UIWindow
@@ -49,7 +49,7 @@ typedef void(^CWCompletionBlock)(void);
 @property (nonatomic) UIStatusBarStyle preferredStatusBarStyle;
 /// Indicats the supported interface orientations.
 @property (nonatomic, setter=setSupportedInterfaceOrientations:)
-    UIInterfaceOrientationMask supportedInterfaceOrientations;
+UIInterfaceOrientationMask supportedInterfaceOrientations;
 @end
 
 # pragma mark - CWStatusBarNotification
@@ -108,6 +108,8 @@ typedef NS_ENUM(NSInteger, CWNotificationAnimationType) {
 @property (strong, nonatomic) UIView *statusBarView;
 /// The block that gets triggered when the notification is tapped.
 @property (copy, nonatomic) CWCompletionBlock notificationTappedBlock;
+/// The block that gets triggered when the notification is dismissed.
+@property (copy, nonatomic) CWCompletionBlock notificationDismissedBlock;
 /// Indicates whether the notification is currently being shown.
 @property (nonatomic) BOOL notificationIsShowing;
 /// Indicates whether the notification is currently dismissing.
@@ -157,7 +159,7 @@ typedef NS_ENUM(NSInteger, CWNotificationAnimationType) {
 @property (nonatomic) NSTimeInterval notificationAnimationDuration;
 /**
  * Determines whether the notification covers the status bar or both the status
- * bar and the navigation bar. Default value is 
+ * bar and the navigation bar. Default value is
  * @c CWNotificationStyleStatusBarNotification.
  */
 @property (nonatomic) CWNotificationStyle notificationStyle;
@@ -171,10 +173,10 @@ typedef NS_ENUM(NSInteger, CWNotificationAnimationType) {
  * value is @c CWNotificationAnimationStyleBottom.
  */
 @property (nonatomic) CWNotificationAnimationStyle
-    notificationAnimationOutStyle;
+notificationAnimationOutStyle;
 /**
- * Determines whether the the notification's animation replaces the existing 
- * content or overlays it. Default value is 
+ * Determines whether the the notification's animation replaces the existing
+ * content or overlays it. Default value is
  * @c CWNotificationAnimationTypeReplace.
  */
 @property (nonatomic) CWNotificationAnimationType notificationAnimationType;
@@ -209,7 +211,7 @@ typedef NS_ENUM(NSInteger, CWNotificationAnimationType) {
                            forDuration:(NSTimeInterval)duration;
 
 /**
- * Displays a notification with the indicated attributed string and then 
+ * Displays a notification with the indicated attributed string and then
  * performs the completion block once the notification animates in.
  * @param attributedString
  *        The content of the message to be displayed.
@@ -217,7 +219,7 @@ typedef NS_ENUM(NSInteger, CWNotificationAnimationType) {
  *        The block to be invoked once the notification is displayed.
  */
 - (void)displayNotificationWithAttributedString:(NSAttributedString *)
-                                                attributedString
+attributedString
                                      completion:(void (^)(void))completion;
 
 /**
@@ -230,7 +232,7 @@ typedef NS_ENUM(NSInteger, CWNotificationAnimationType) {
  *        not including the animate in and out times.
  */
 - (void)displayNotificationWithAttributedString:(NSAttributedString *)
-                                                attributedString
+attributedString
                                     forDuration:(NSTimeInterval)duration;
 
 /**
